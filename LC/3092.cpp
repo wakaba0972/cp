@@ -1,4 +1,5 @@
-//官解是multiset 但用priority queue意外的時間複雜度相同
+//官解是multiset 但用priority queue意外的用時相當
+//猜測是set常數較大，或均攤之類的原因
 
 class Solution {
 public:
