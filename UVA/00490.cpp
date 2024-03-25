@@ -1,5 +1,3 @@
-// why????
-
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -17,8 +15,10 @@ int main(){
         vs.push_back(s);
     }
     
+    //建立二維表格
     vector<string> ans(mx);
     
+    //填入表格，每個句子後的空格補-1(不包含句子中的空格)
     for(int i=0; i<mx; i++){
         for(int j=vs.size()-1; j>=0; j--){
             if(i < vs[j].size()){
@@ -28,23 +28,21 @@ int main(){
         }
     }
     
-    int tp = mx-1, deep = -1, ii = vs.size();
-    for(auto v: vs) deep = max(deep, ii);
-    for(int i=vs.size()-1; i>=0; i--){
-    	if(vs[i].size() == deep) ii = i;
-    }
-    
+    //尋找右上角的-1位置
+    int tp = mx-1;
     for(; tp>-1; tp--){
     	if(ans[tp][vs.size()-1] != -1) break;
     }
-    
+
+    //從右邊刪除-1，以進行縮排
     for(int i=tp; i<mx; i++){
-    	for(int j=vs.size()-1; j>ii-2; j--){
+    	for(int j=vs.size()-1; j>0; j--){
     		if(ans[i][j] != -1) break;
     		ans[i].pop_back();
     	}
     }
     
+    //從左邊刪除-1，以空格取代
     for(int i=0; i<mx; i++) for(int j=0; j<vs.size(); j++) if(ans[i][j] == -1) ans[i][j] = ' ';
     
     for(string s: ans) cout << s << '\n';
