@@ -5,14 +5,13 @@ public:
         vector<bool> done(n+1);
         vector<int> dis(n+1);
         fill(dis.begin(), dis.end(), 2000000000);
-        dis[k] = 0;
 
         for(auto v: times){
             adj[v[0]].push_back({v[1], v[2]});
         }
 
         priority_queue<pair<int, int>> pq;
-        pq.push({0, k});
+        pq.push({dis[k] = 0, k});
 
         while(!pq.empty()){
             auto v = pq.top().second;
