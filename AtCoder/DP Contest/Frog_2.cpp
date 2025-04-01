@@ -8,6 +8,7 @@
 					f(k-1)=min(abs(stones[k-1]-stones[k-2])+f(k-2), abs(stones[k-1]-stones[k-3])+f(k-3), ..., abs(stones[k-1]-stones[0])+f(0))
 	
 	轉移方程: 對i>=k, f(i)=min(abs(stones[i]-stones[i-1])+f(i-1), abs(stones[i]-stones[i-2])+f(i-2), ..., abs(stones[i]-stones[i-k])+f(i-k))
+	複雜度: O(nk)
 */
 
 #include<bits/stdc++.h>

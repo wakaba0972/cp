@@ -2,6 +2,7 @@
 	設f(i)為到達第i個石頭的最小花費，
 	則有初始狀態 f(0) = 0, f(1) = abs(stones[1]-stones[0])
 	轉移方程 f(i) = min(f(i-1)+abs(stones[i]-stones[i-1]), f(i-2)+abs(stones[i]-stones[i-2]))
+	複雜度: O(n)
 */
 
 #include<bits/stdc++.h>
